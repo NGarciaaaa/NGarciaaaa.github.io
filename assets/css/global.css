@@ -26,7 +26,7 @@ body.light-theme {
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 html.is-loading,
 body.is-loading {
   overflow: hidden;
@@ -61,13 +61,13 @@ img { max-width: 100%; }
   background: #000; transition: opacity .55s ease, visibility .55s ease;
 }
 .intro-loader.is-done { opacity: 0; visibility: hidden; pointer-events: none; }
-.loader-content { text-align: center; }
-.loader-name { display: flex; gap: .16em; color: #77767a; font-size: 28px; letter-spacing: .26em; }
-.loader-letter { animation: loader-flicker 1.4s calc(var(--i) * 55ms) both; }
+.loader-content { width: min(100% - 32px, 520px); text-align: center; }
+.loader-name { display: flex; justify-content: center; gap: .12em; color: #77767a; font-size: clamp(24px, 8vw, 36px); letter-spacing: .18em; }
+.loader-letter { animation: loader-flicker 1.4s calc(var(--i) * 55ms) infinite; }
 .loader-track { width: 180px; height: 1px; margin: 28px auto 0; overflow: hidden; background: rgba(255,255,255,.1); }
 .loader-progress { display: block; width: 100%; height: 100%; transform: scaleX(0); transform-origin: left; background: var(--purple-dark); transition: transform 2.2s ease; }
 .intro-loader.assets-ready .loader-progress { transform: scaleX(1); }
-.loader-status { margin: 14px 0 0; color: rgba(255,255,255,.35); font-size: 10px; font-weight: 700; letter-spacing: .32em; text-transform: uppercase; }
+.loader-status { margin: 14px 0 0; color: rgba(255,255,255,.35); font-size: 10px; font-weight: 700; letter-spacing: clamp(.18em, 1.5vw, .32em); text-transform: uppercase; }
 .intro-photo-stage { position: fixed; inset: 0; z-index: 90; display: grid; place-items: center; background: var(--page); opacity: 0; pointer-events: none; transition: opacity .25s ease, visibility .25s; visibility: hidden; }
 .intro-photo-stage.is-visible { opacity: 1; visibility: visible; }
 .intro-photo-stage.is-exiting { opacity: 0; visibility: hidden; }
@@ -310,7 +310,6 @@ body.lightbox-open { overflow: hidden; }
   .about-grid, .contact-card { grid-template-columns: 1fr; gap: 38px; }
   .contact-details { padding: 0 0 34px; border-right: 0; border-bottom: 1px solid var(--line); }
   .stack-grid { grid-template-columns: repeat(3, 1fr); }
-  .loader-name { font-size: 36px; }
 }
 @media (min-width: 561px) and (max-width: 800px) {
   .hero-background {
