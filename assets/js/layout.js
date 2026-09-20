@@ -2,6 +2,19 @@ const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const delay = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 
+const blockLoadingScroll = (event) => {
+  if (document.documentElement.classList.contains("is-loading")) event.preventDefault();
+};
+const blockLoadingKeys = (event) => {
+  if (!document.documentElement.classList.contains("is-loading")) return;
+  if ([" ", "PageUp", "PageDown", "Home", "End", "ArrowUp", "ArrowDown"].includes(event.key)) {
+    event.preventDefault();
+  }
+};
+document.addEventListener("touchmove", blockLoadingScroll, { passive: false });
+document.addEventListener("wheel", blockLoadingScroll, { passive: false });
+document.addEventListener("keydown", blockLoadingKeys);
+
 const selectors = {
   loader: "#intro-loader",
   photoStage: "#intro-photo-stage",
@@ -77,8 +90,12 @@ const showIntro = async () => {
     item.style.setProperty("--hero-delay", `${620 + index * 130}ms`);
     item.classList.add("is-entered");
   });
+  window.scrollTo(0, 0);
   document.documentElement.classList.remove("is-loading");
   document.body.classList.remove("is-loading");
+  document.removeEventListener("touchmove", blockLoadingScroll);
+  document.removeEventListener("wheel", blockLoadingScroll);
+  document.removeEventListener("keydown", blockLoadingKeys);
 };
 
 const initializeReveals = () => {
@@ -344,8 +361,12 @@ const initializeLayout = async () => {
 window.addEventListener("DOMContentLoaded", () => {
   initializeLayout().catch((error) => {
     console.error("Portfolio layout initialization failed:", error);
+    window.scrollTo(0, 0);
     document.documentElement.classList.remove("is-loading");
     document.body.classList.remove("is-loading");
+    document.removeEventListener("touchmove", blockLoadingScroll);
+    document.removeEventListener("wheel", blockLoadingScroll);
+    document.removeEventListener("keydown", blockLoadingKeys);
     $(selectors.loader)?.classList.add("is-done");
   });
 });
