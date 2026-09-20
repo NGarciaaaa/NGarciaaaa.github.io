@@ -44,7 +44,6 @@ const showIntro = async () => {
   await delay(520);
 
   loader?.classList.add("is-done");
-  document.body.classList.remove("is-loading");
   photoStage?.classList.add("is-visible");
 
   if (stageImage && heroPhoto) {
@@ -78,6 +77,8 @@ const showIntro = async () => {
     item.style.setProperty("--hero-delay", `${620 + index * 130}ms`);
     item.classList.add("is-entered");
   });
+  document.documentElement.classList.remove("is-loading");
+  document.body.classList.remove("is-loading");
 };
 
 const initializeReveals = () => {
@@ -343,6 +344,7 @@ const initializeLayout = async () => {
 window.addEventListener("DOMContentLoaded", () => {
   initializeLayout().catch((error) => {
     console.error("Portfolio layout initialization failed:", error);
+    document.documentElement.classList.remove("is-loading");
     document.body.classList.remove("is-loading");
     $(selectors.loader)?.classList.add("is-done");
   });

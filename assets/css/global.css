@@ -27,6 +27,8 @@ body.light-theme {
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+html.is-loading,
+body.is-loading { overflow: hidden; }
 body {
   margin: 0;
   color: var(--ink);
