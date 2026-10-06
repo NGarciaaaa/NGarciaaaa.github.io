@@ -484,6 +484,12 @@ main section[id] {
   font-size: 21px;
   line-height: 1;
 }
+.button-image-icon {
+  width: 21px;
+  height: 21px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
 
 .section {
   padding: 120px 0;
