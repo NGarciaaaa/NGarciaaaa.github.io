@@ -77,7 +77,7 @@ body.light-theme #site-content {
     linear-gradient(90deg, rgba(42, 40, 48, 0.035) 1px, transparent 1px);
 }
 body:not(.is-loading) #site-content {
-  animation: site-content-reveal 2.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: site-content-reveal 1.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 @keyframes site-content-reveal {
   to {
