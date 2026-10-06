@@ -18,18 +18,6 @@ body.light-theme {
   --surface-light: #ddd9e2;
   --line: rgba(42, 40, 48, 0.16);
   --page: #d9d6de;
-  background-image:
-    radial-gradient(
-      circle at 86% 8%,
-      rgba(124, 60, 255, 0.08),
-      transparent 24rem
-    ),
-    linear-gradient(rgba(42, 40, 48, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(42, 40, 48, 0.035) 1px, transparent 1px);
-  background-size:
-    auto,
-    72px 72px,
-    72px 72px;
 }
 
 * {
@@ -52,7 +40,15 @@ body.is-loading {
 body {
   margin: 0;
   color: var(--ink);
-  background: var(--page);
+  background: #000;
+  font-family: "DM Sans", Arial, sans-serif;
+  overflow-x: hidden;
+}
+#site-content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  background-color: var(--page);
   background-image:
     radial-gradient(
       circle at 86% 8%,
@@ -65,8 +61,28 @@ body {
     auto,
     72px 72px,
     72px 72px;
-  font-family: "DM Sans", Arial, sans-serif;
-  overflow-x: hidden;
+  clip-path: circle(0 at 50% 100%);
+  will-change: clip-path;
+  transform: translateZ(0);
+}
+body.light-theme #site-content {
+  background-color: var(--page);
+  background-image:
+    radial-gradient(
+      circle at 86% 8%,
+      rgba(124, 60, 255, 0.08),
+      transparent 24rem
+    ),
+    linear-gradient(rgba(42, 40, 48, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42, 40, 48, 0.035) 1px, transparent 1px);
+}
+body:not(.is-loading) #site-content {
+  animation: site-content-reveal 2.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes site-content-reveal {
+  to {
+    clip-path: circle(145% at 50% 100%);
+  }
 }
 a {
   color: inherit;
