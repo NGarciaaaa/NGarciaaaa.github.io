@@ -275,6 +275,15 @@
 
             <button
               type="button"
+              data-tab="certificates"
+              aria-selected="false"
+              class="tab-button"
+            >
+              Certificates
+            </button>
+
+            <button
+              type="button"
               data-tab="tech-stack"
               aria-selected="false"
               class="tab-button"
@@ -386,6 +395,35 @@
                 <div class="project-copy">
                   <p>UI Design</p>
                   <h3>APTBot UI</h3>
+                </div>
+              </article>
+            </div>
+
+            <div data-panel="certificates" class="tab-panel hidden project-grid">
+              <article
+                data-reveal
+                style="--delay: 140ms; --n: 0"
+                class="project-card certificate-card"
+              >
+                <div class="project-image">
+                  <img
+                    src="assets/image/certificates/certificate-placeholder.svg"
+                    alt="Certificate preview"
+                    loading="lazy"
+                  />
+                  <button
+                    type="button"
+                    class="certificate-link"
+                    data-certificate-src="assets/image/certificates/certificate-placeholder.svg"
+                    data-certificate-title="Certificate"
+                    aria-label="View Certificate"
+                  >
+                    <i class="ri-zoom-in-line" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div class="project-copy">
+                  <p>Certificate</p>
+                  <h3>Certificate</h3>
                 </div>
               </article>
             </div>

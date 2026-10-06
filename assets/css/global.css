@@ -693,6 +693,12 @@ img {
   border: 0;
   cursor: pointer;
 }
+.certificate-card .certificate-link {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
 .certificate-link:hover {
   animation: project-link-float 0.8s ease-in-out infinite alternate;
 }
@@ -716,6 +722,9 @@ img {
   padding: 70px 24px 24px;
   background: rgba(10, 9, 14, 0.88);
   backdrop-filter: blur(8px);
+}
+.certificate-lightbox.show {
+  display: grid !important;
 }
 .certificate-lightbox-content {
   max-width: min(900px, 92vw);
