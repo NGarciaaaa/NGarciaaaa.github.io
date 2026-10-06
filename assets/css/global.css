@@ -61,9 +61,6 @@ body {
     auto,
     72px 72px,
     72px 72px;
-  clip-path: circle(0 at 50% 100%);
-  will-change: clip-path;
-  transform: translateZ(0);
 }
 body.light-theme #site-content {
   background-color: var(--page);
@@ -75,14 +72,6 @@ body.light-theme #site-content {
     ),
     linear-gradient(rgba(42, 40, 48, 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(42, 40, 48, 0.035) 1px, transparent 1px);
-}
-body:not(.is-loading) #site-content {
-  animation: site-content-reveal 1.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-@keyframes site-content-reveal {
-  to {
-    clip-path: circle(145% at 50% 100%);
-  }
 }
 a {
   color: inherit;
@@ -199,13 +188,14 @@ main section[id] {
 .intro-photo-stage.is-exiting {
   opacity: 0;
   visibility: hidden;
+  transition-duration: 0.45s;
 }
 .intro-photo-stage img {
   width: auto;
   max-width: 72vw;
   max-height: 78vh;
   object-fit: contain;
-  will-change: transform;
+  filter: drop-shadow(0 24px 30px rgba(0, 0, 0, 0.35));
 }
 @keyframes loader-flicker {
   0%,
@@ -1108,6 +1098,16 @@ body.lightbox-open {
 }
 .hero-photo.is-ready {
   opacity: 1;
+  animation: hero-photo-enter 0.9s
+    cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes hero-photo-enter {
+  from {
+    transform: translateX(-50%) translateY(12px) scale(1.18);
+  }
+  to {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
 }
 
 @media (max-width: 800px) {
