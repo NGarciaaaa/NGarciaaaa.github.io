@@ -22,11 +22,19 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"
     />
+    <link
+      rel="preload"
+      as="image"
+      href="assets/image/background/me-crop.webp"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="assets/image/background/bg-crop.webp"
+      fetchpriority="high"
+    />
     <link rel="stylesheet" href="assets/css/global.css" />
-    <script
-      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-      defer
-    ></script>
   </head>
   <body class="canva-page is-loading">
     <div
@@ -148,12 +156,16 @@
                 src="assets/image/background/bg-crop.webp"
                 alt=""
                 class="hero-background"
+                fetchpriority="high"
+                decoding="async"
               />
               <img
                 data-hero-photo
                 src="assets/image/background/me-crop.webp"
                 alt="Noah Garcia in a suit"
                 class="hero-photo"
+                fetchpriority="high"
+                decoding="async"
               />
             </div>
             <div class="hero-copy">
@@ -277,7 +289,7 @@
               type="button"
               data-tab="certificates"
               aria-selected="false"
-              class="tab-button"
+              class="tab-button certificate-indicator hidden"
             >
               Certificates
             </button>
@@ -399,7 +411,10 @@
               </article>
             </div>
 
-            <div data-panel="certificates" class="tab-panel hidden project-grid">
+            <div
+              data-panel="certificates"
+              class="tab-panel hidden project-grid"
+            >
               <article
                 data-reveal
                 style="--delay: 140ms; --n: 0"
@@ -415,14 +430,12 @@
                     type="button"
                     class="certificate-link"
                     data-certificate-src="assets/image/certificates/certificate-placeholder.svg"
-                    data-certificate-title="Certificate"
                     aria-label="View Certificate"
                   >
                     <i class="ri-zoom-in-line" aria-hidden="true"></i>
                   </button>
                 </div>
                 <div class="project-copy">
-                  <p>Certificate</p>
                   <h3>Certificate</h3>
                 </div>
               </article>
@@ -528,7 +541,7 @@
         class="certificate-lightbox hidden"
         role="dialog"
         aria-modal="true"
-        aria-labelledby="certificate-lightbox-title"
+        aria-label="Certificate preview"
       >
         <button
           type="button"
@@ -537,10 +550,7 @@
         >
           <i class="ri-close-line" aria-hidden="true"></i>
         </button>
-        <div class="certificate-lightbox-content">
-          <img id="certificate-lightbox-image" src="" alt="" />
-          <p id="certificate-lightbox-title"></p>
-        </div>
+        <img id="certificate-lightbox-image" src="" alt="" />
       </div>
 
       <section id="contact" class="section section-contact">

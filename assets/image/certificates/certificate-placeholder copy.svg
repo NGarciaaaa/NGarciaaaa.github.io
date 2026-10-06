@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title description">
+  <title id="title">Certificate placeholder</title>
+  <desc id="description">Replace this file with a certificate image.</desc>
+  <rect width="1200" height="800" fill="#292a34"/>
+  <rect x="55" y="55" width="1090" height="690" rx="18" fill="none" stroke="#7c3cff" stroke-width="8"/>
+  <text x="600" y="370" fill="#f8f7ff" font-family="Arial, sans-serif" font-size="58" text-anchor="middle">Certificate</text>
+  <text x="600" y="445" fill="#aaa8b9" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">Replace certificate-placeholder.svg</text>
+</svg>
